@@ -19,11 +19,12 @@ export default async function handler(req, res) {
     `📝 Subject: ${subject}\n` +
     `💬 Message:\n${message}`;
 
-  await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  await fetch("https://api-backend-api.vercel.app/api/contact", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ chat_id: chatId, text }),
   });
 
   return res.json({ success: true });
+
 }
